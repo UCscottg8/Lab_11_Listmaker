@@ -25,7 +25,9 @@ public class ListMaker {
                     displayList();
                     break;
                 case "Q":
-                    done = true;
+                    if (SafeInput.getYNConfirm(scanner, "Are you sure you want to quit?")) {
+                        done = true;
+                    }
                     break;
                 default:
                     System.out.println("Invalid command. Please enter a valid command.");
