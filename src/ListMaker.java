@@ -1,67 +1,59 @@
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class ListMaker {
-    private static List<String> itemList = new ArrayList<>();
+    private static ArrayList<String> list = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        boolean keepRunning = true;
-        while (keepRunning) {
-            displayMenu();
-            String choice = SafeInput.getRegExString(scanner, "Enter your choice", "[AaDdPpQq]");
-            switch (choice.toLowerCase()) {
-                case "a":
-                    addItem();
+        final String menu = "A - Add  D - Delete  P - Print  Q - Quit";
+        boolean done = false;
+        String cmd = "";
+
+        do {
+            cmd = SafeInput.getRegExString(scanner, menu, "[AaDdPpQq]");
+            cmd = cmd.toUpperCase();
+
+            switch(cmd) {
+                case "A":
+                    addToList();
                     break;
-                case "d":
-                    deleteItem();
+                case "D":
+                    deleteFromList();
                     break;
-                case "p":
-                    printList();
+                case "P":
+                    displayList();
                     break;
-                case "q":
-                    keepRunning = !SafeInput.getYNConfirm(scanner, "Are you sure you want to quit?");
+                case "Q":
+                    done = true;
                     break;
                 default:
-                    System.out.println("Invalid choice. Please enter again.");
-                    break;
+                    System.out.println("Invalid command. Please enter a valid command.");
             }
-        }
+        } while (!done);
     }
 
-    private static void displayMenu() {
-        System.out.println("List: " + itemList);
-        System.out.println("Choose an option:");
-        System.out.println("A – Add an item to the list");
-        System.out.println("D – Delete an item from the list");
-        System.out.println("P – Print (i.e. display) the list");
-        System.out.println("Q – Quit the program");
+    private static void addToList() {
+        System.out.println("Enter the item to be added:");
+        String item = scanner.nextLine();
+        list.add(item);
     }
 
-    private static void addItem() {
-        String item = SafeInput.getNonZeroLenString(scanner, "Enter item to add");
-        itemList.add(item);
+    private static void deleteFromList() {
+        displayList();
+        int index = SafeInput.getRangedInt(scanner, "Enter the number of the item to delete", 1, list.size());
+        list.remove(index - 1);
     }
 
-    private static void deleteItem() {
-        if(itemList.isEmpty()) {
-            System.out.println("The list is empty. No items to delete.");
+    private static void displayList() {
+        System.out.println("+++++++++++++++++++++++++++++++++++++");
+        if(list.size() != 0) {
+            for(int i = 0; i < list.size(); i++) {
+                System.out.printf("%3d%35s\n", i+1, list.get(i));
+            }
         } else {
-            printNumberedList();
-            int index = SafeInput.getRangedInt(scanner, "Enter item number to delete", 1, itemList.size()) - 1;
-            itemList.remove(index);
+            System.out.println("+++     List is empty     +++");
         }
-    }
-
-    private static void printList() {
-        System.out.println("Current List: " + itemList);
-    }
-
-    private static void printNumberedList() {
-        for(int i = 0; i < itemList.size(); i++) {
-            System.out.println((i + 1) + ". " + itemList.get(i));
-        }
+        System.out.println("+++++++++++++++++++++++++++++++++++++");
     }
 }
