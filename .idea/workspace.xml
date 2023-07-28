@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c82de0b-d57f-4248-a5d5-56a0810b15c1" name="Changes" comment="ver 4">
+    <list default="true" id="1c82de0b-d57f-4248-a5d5-56a0810b15c1" name="Changes" comment="ver 5">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ListMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ListMaker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +76,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690509368836</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ver 5">
+      <created>1690510083887</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1690510083887</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -85,6 +91,7 @@
     <MESSAGE value="ver 2" />
     <MESSAGE value="ver 3" />
     <MESSAGE value="ver 4" />
-    <option name="LAST_COMMIT_MESSAGE" value="ver 4" />
+    <MESSAGE value="ver 5" />
+    <option name="LAST_COMMIT_MESSAGE" value="ver 5" />
   </component>
 </project>
